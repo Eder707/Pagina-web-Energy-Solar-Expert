@@ -1295,6 +1295,432 @@ a{ color:inherit; text-decoration:none; }
   }
 }
 
+/* =========================
+   GALLERY SECTION
+   ========================= */
+.gallery {
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(700px 400px at 80% 30%, rgba(212,175,55,.07), transparent 60%),
+    var(--panel);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.gallery__card {
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.gallery__placeholder {
+  aspect-ratio: 4 / 3;
+  background:
+    radial-gradient(400px 250px at 40% 40%, rgba(212,175,55,.12), transparent 60%),
+    linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.01)),
+    rgba(20,20,20,.7);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.gallery__placeholder:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow2);
+}
+
+.gallery__label {
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,.30);
+}
+
+/* =========================
+   VIDEO SECTION
+   ========================= */
+.video-section {
+  padding: 80px 0;
+  background:
+    radial-gradient(800px 450px at 20% 40%, rgba(255,30,30,.09), transparent 60%),
+    var(--panel2);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* 16:9 responsive container */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  border-radius: var(--radius2);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow);
+  background: #000;
+  aspect-ratio: 16 / 9;
+}
+
+.video-wrap__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Overlay shown when iframe src="#" — remove or hide once real video is embedded */
+.video-wrap__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background:
+    radial-gradient(600px 400px at 50% 50%, rgba(212,175,55,.10), transparent 65%),
+    rgba(5,5,5,.80);
+  pointer-events: none;
+}
+
+.video-wrap__play {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--red), var(--red2));
+  border: 2px solid rgba(255,255,255,.15);
+  box-shadow: 0 0 0 12px rgba(255,30,30,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  padding-left: 4px;
+}
+
+.video-wrap__caption {
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .9px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+
+/* =========================
+   TESTIMONIALS SECTION
+   ========================= */
+.testimonials {
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(900px 500px at 10% 40%, rgba(212,175,55,.07), transparent 60%),
+    radial-gradient(700px 400px at 90% 50%, rgba(255,30,30,.07), transparent 60%),
+    var(--panel);
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.testi-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius2);
+  padding: 26px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.testi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow2);
+}
+
+.testi-card__stars {
+  color: var(--gold);
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.testi-card__quote {
+  margin: 0;
+  color: #dedede;
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+  flex: 1;
+}
+
+.testi-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.testi-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(212,175,55,.55), rgba(255,30,30,.45));
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.testi-card__name {
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+.testi-card__metric {
+  margin-top: 4px;
+  color: var(--gold);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* =========================
+   ABOUT COACH — LUIS BONO
+   ========================= */
+.coach {
+  padding: 80px 0;
+  background:
+    radial-gradient(900px 500px at 85% 30%, rgba(212,175,55,.09), transparent 60%),
+    var(--panel2);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.coach__inner {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.coach__photo-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.coach__photo {
+  border-radius: var(--radius2);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow2);
+  background:
+    radial-gradient(500px 300px at 50% 20%, rgba(212,175,55,.12), transparent 55%),
+    rgba(20,20,20,.55);
+  aspect-ratio: 3 / 4;
+  position: relative;
+}
+
+.coach__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.coach__content .h2 {
+  margin-top: 10px;
+}
+
+.coach__content .p {
+  margin-top: 14px;
+}
+
+.coach__stats {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.coach-stat {
+  background: rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  padding: 14px 12px;
+}
+
+.coach-stat__num {
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--gold);
+  letter-spacing: .5px;
+}
+
+.coach-stat__label {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.35;
+}
+
+/* =========================
+   FAQ SECTION
+   ========================= */
+.faq {
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(800px 500px at 50% 30%, rgba(255,30,30,.07), transparent 60%),
+    var(--panel);
+}
+
+.faq__list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq__item {
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+  overflow: hidden;
+  transition: border-color .15s ease;
+}
+
+.faq__item[open] {
+  border-color: rgba(212,175,55,.30);
+  background: rgba(212,175,55,.03);
+}
+
+.faq__question {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 20px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: .3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+
+.faq__question::-webkit-details-marker { display: none; }
+
+.faq__question::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform .2s ease;
+}
+
+.faq__item[open] .faq__question::after {
+  transform: rotate(45deg);
+}
+
+.faq__answer {
+  padding: 0 20px 18px;
+  border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.faq__answer p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.faq__cta {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.faq__link {
+  color: var(--gold);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.faq__link:hover {
+  color: #f1e6c1;
+}
+
+/* =========================
+   RESPONSIVE — NEW SECTIONS (gallery, video, testimonials, coach, faq)
+   ========================= */
+
+@media (max-width: 980px) {
+  .coach__inner {
+    grid-template-columns: 1fr;
+  }
+  .coach__photo {
+    aspect-ratio: 16 / 9;
+    max-height: 340px;
+  }
+  .coach__photo img {
+    object-position: center top;
+  }
+}
+
+@media (max-width: 900px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery__grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery, .video-section, .testimonials, .coach, .faq {
+    padding: 60px 0;
+  }
+  .coach__stats {
+    grid-template-columns: 1fr;
+  }
+  .faq__question {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 640px) {
   .community__grid {
     grid-template-columns: 1fr;
