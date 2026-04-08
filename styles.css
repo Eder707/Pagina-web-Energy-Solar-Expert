@@ -2018,40 +2018,42 @@ a{ color:inherit; text-decoration:none; }
 }
 
 
-
 /* =========================================
    📱 AJUSTES PARA MÓVILES (Resolución de recortes)
    ========================================= */
 @media (max-width: 768px) {
   .hero {
-    /* Hacemos espacio en la parte inferior para colocar la foto ahí */
-    padding-bottom: 380px; 
+    /* Empujamos el texto un poco hacia abajo para dejarle espacio al rostro */
+    padding-top: 320px; 
+    padding-bottom: 60px; /* Restauramos el padding normal de abajo */
   }
 
   .hero__photo {
-    /* La foto ocupa todo el ancho y se ancla abajo */
+    /* Anclamos la foto arriba y le damos un límite de altura para evitar el zoom */
     width: 100%;
-    height: 400px; 
-    top: auto;
-    bottom: 0;
+    height: 550px; 
+    top: 0;
+    bottom: auto;
     right: 0;
-    /* Cambiamos el corte diagonal para que tenga sentido en móvil (corte superior) */
-    clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    clip-path: none; /* Quitamos el corte diagonal que solo sirve en PC */
+    border: none;
+    
+    /* MAGIA: Hacemos que la foto se difumine hacia abajo para que el texto se lea perfecto */
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
   }
 
   .hero__photo img {
-    /* Forzamos a que el recorte se centre en la parte de arriba (el rostro) */
-    object-position: top center;
+    /* Aseguramos que el enfoque esté en su cabeza */
+    object-position: center top; 
   }
 
-  /* Apilamos los recuadros de confianza (12 months, etc.) en una sola columna */
+  /* Apilamos los recuadros de beneficios en 1 sola columna */
   .trust {
     grid-template-columns: 1fr;
   }
 
-  /* Apilamos los botones de llamado a la acción para que se vean simétricos */
+  /* Apilamos los botones de CTA a ancho completo */
   .hero__ctaRow {
     flex-direction: column;
   }
@@ -2060,3 +2062,6 @@ a{ color:inherit; text-decoration:none; }
     width: 100%;
   }
 }
+
+
+
