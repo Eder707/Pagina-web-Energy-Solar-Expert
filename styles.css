@@ -1380,7 +1380,7 @@ a{ color:inherit; text-decoration:none; }
   display: block;
 }
 
-/* Overlay shown when iframe src="#" — remove or hide once real video is embedded */
+/* Overlay shown while no real video is embedded — remove or hide once a real embed URL is set */
 .video-wrap__overlay {
   position: absolute;
   inset: 0;
