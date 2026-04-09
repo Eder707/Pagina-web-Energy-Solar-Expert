@@ -1,13 +1,13 @@
 :root{
-  --bg:#050505;
-  --panel:#0b0b0b;
-  --panel2:#101010;
+  --bg:#080806;
+  --panel:#470006;
+  --panel2:#7c030d;
   --text:#ffffff;
   --muted:#bdbdbd;
-  --border:#222222;
-  --gold:#d4af37;
-  --red:#ff1e1e;
-  --red2:#ff3b3b;
+  --border:#5b0b11;
+  --gold:#ffcb06;
+  --red:#b6010b;
+  --red2:#7c030d;
   --shadow: 0 24px 80px rgba(0,0,0,.55);
   --shadow2: 0 18px 60px rgba(0,0,0,.45);
   --radius: 18px;
@@ -26,11 +26,9 @@ html, body{
 body{
   margin:0;
   padding-top: 72px;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Glacial Indifference", Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
-  background: radial-gradient(900px 700px at 15% 10%, rgba(212,175,55,.10), transparent 55%),
-              radial-gradient(900px 700px at 85% 25%, rgba(255,30,30,.10), transparent 55%),
-              var(--bg);
+  background: var(--bg);
   letter-spacing: .2px;
 }
 
@@ -50,7 +48,7 @@ a{ color:inherit; text-decoration:none; }
 .gold{ color:var(--gold); }
 
 .h1, .h2{
-  font-family: Montserrat, Impact, system-ui, sans-serif;
+  font-family: Orbitron, Impact, system-ui, sans-serif;
   text-transform: uppercase;
   margin:0;
 }
@@ -103,7 +101,7 @@ a{ color:inherit; text-decoration:none; }
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: .8px;
-  font-family: Montserrat, Inter, system-ui, sans-serif;
+  font-family: Orbitron, "Glacial Indifference", Inter, system-ui, sans-serif;
   transition: transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
   white-space: nowrap;
   min-height: 48px; /* ✅ better tap target on mobile */
@@ -113,17 +111,17 @@ a{ color:inherit; text-decoration:none; }
 
 /* Red primary CTA button */
 .btn--primary{
-  background: linear-gradient(135deg, var(--red), var(--red2));
-  border-color: rgba(255,30,30,.55);
-  box-shadow: 0 16px 50px rgba(255,30,30,.20);
+  background: var(--red);
+  border-color: var(--red2);
+  box-shadow: 0 16px 50px rgba(182,1,11,.22);
 }
 .btn--primary:hover{
-  box-shadow: 0 18px 70px rgba(255,30,30,.28);
+  box-shadow: 0 18px 70px rgba(182,1,11,.30);
 }
 /* Secondary outlined CTA button */
 .btn--ghost{
-  background: rgba(255,255,255,.03);
-  border-color: rgba(212,175,55,.35);
+  background: rgba(255,255,255,.02);
+  border-color: rgba(255,203,6,.45);
 }
 /* Larger CTA sizing for hero/form buttons */
 .btn--xl{ padding: 14px 22px; }
@@ -1351,6 +1349,21 @@ a{ color:inherit; text-decoration:none; }
   overflow: hidden;
 }
 
+.gallery__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.gallery__img:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow2);
+}
+
 .gallery__placeholder {
   aspect-ratio: 4 / 3;
   background:
@@ -2095,4 +2108,165 @@ a{ color:inherit; text-decoration:none; }
   .hero__ctaRow .btn {
     width: 100%;
   }
+}
+
+/* =========================
+   BRAND THEME OVERRIDE
+   ========================= */
+
+.h1, .h2, .h2--massive,
+.btn,
+.brand__name,
+.brand__tag,
+.pill,
+.trust__kpi,
+.section-header .h2,
+.plan-card__badge,
+.plan-card__duration,
+.plan-card__price,
+.comm-card__title,
+.faq__question,
+.footer__brand {
+  font-family: Orbitron, sans-serif;
+}
+
+.p,
+.subhead,
+.micro,
+.trust__label,
+.value-list li,
+.comm-card__desc,
+.faq__answer p,
+.field__label,
+.field__input,
+.fineprint,
+.footer__copy {
+  font-family: "Glacial Indifference", Inter, system-ui, sans-serif;
+}
+
+.header {
+  background: #080806 !important;
+  border-bottom: 1px solid rgba(255,203,6,.18);
+}
+
+.hero,
+.pricing,
+.community,
+.testimonials,
+.faq,
+.footer {
+  background-color: var(--bg) !important;
+  background-image: none !important;
+}
+
+.video-section,
+.blueprint,
+.value-pkg,
+.gallery,
+.coach,
+.apply {
+  background-color: var(--panel) !important;
+  background-image: none !important;
+}
+
+.plan-card,
+.trust__item,
+.comm-card,
+.testi-card,
+.faq__item,
+.formCard,
+.value-pkg__photo,
+.coach__photo,
+.gallery__img {
+  border-color: rgba(255,203,6,.18);
+}
+
+.notice-bar,
+.urgency,
+.video-wrap__overlay {
+  background: rgba(182,1,11,.16);
+}
+
+.gold,
+.coach-stat__num,
+.faq__link,
+.testi-card__metric {
+  color: var(--gold);
+}
+
+/* Requested tweaks */
+.value-pkg {
+  background-color: #080806 !important;
+}
+
+.blueprint__price-block {
+  background: #b6010b;
+  border: 1px solid #7c030d;
+  border-radius: 14px;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-self: flex-start;
+}
+
+.blueprint__price-orig,
+.blueprint__price-now {
+  color: #fff3f3;
+}
+
+/* Section-level color request */
+.blueprint {
+  background-color: #080806 !important;
+  background-image: none !important;
+}
+
+.pricing {
+  background-color: #7c030d !important;
+  background-image:
+    linear-gradient(rgba(8,8,6,.82), rgba(8,8,6,.82)),
+    url("img/Fondo2.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.pricing .section-header .h2,
+.pricing .section-header .p,
+.pricing__note {
+  color: #fff3f3;
+}
+
+.plan-card,
+.plan-card--featured {
+  background: #080806 !important;
+  box-shadow: none;
+}
+
+.coach {
+  background-color: #080806 !important;
+  background-image:
+    linear-gradient(rgba(8,8,6,.80), rgba(8,8,6,.80)),
+    url("img/Fondo3.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.gallery {
+  background-color: #080806 !important;
+  background-image:
+    linear-gradient(rgba(8,8,6,.74), rgba(8,8,6,.74)),
+    url("img/Fondo1.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.video-section {
+  background-color: #080806 !important;
+  background-image:
+    linear-gradient(rgba(8,8,6,.76), rgba(8,8,6,.76)),
+    url("img/Fondo4.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
 }
