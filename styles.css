@@ -25,6 +25,7 @@ html, body{
 
 body{
   margin:0;
+  padding-top: 72px;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color:var(--text);
   background: radial-gradient(900px 700px at 15% 10%, rgba(212,175,55,.10), transparent 55%),
@@ -54,20 +55,20 @@ a{ color:inherit; text-decoration:none; }
   margin:0;
 }
 .h1{
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: -0.6px;
   line-height: 0.95;
-  font-size: clamp(40px, 5vw, 70px);
+  font-size: clamp(30px, 4.3vw, 56px);
   max-width: 800px;
 }
 .h2{
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: -0.4px;
   line-height: 1.02;
-  font-size: clamp(28px, 3.2vw, 54px);
+  font-size: clamp(24px, 2.8vw, 46px);
 }
 .h2--massive{
-  font-size: clamp(34px, 3.8vw, 60px);
+  font-size: clamp(29px, 3.3vw, 52px);
 }
 .p{
   margin: 14px 0 0;
@@ -131,11 +132,16 @@ a{ color:inherit; text-decoration:none; }
 
 /* Header */
 .header{
-  position: sticky;
-  top:0;
+  position: fixed !important;
+  top:0 !important;
+  left:0 !important;
+  right:0 !important;
+  width:100% !important;
+  transform: none !important;
   z-index: 50;
-  backdrop-filter: blur(10px);
-  background: rgba(5,5,5,.65);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: rgba(5,5,5,.92);
   border-bottom: 1px solid rgba(255,255,255,.06);
 }
 .header__inner{
@@ -149,6 +155,14 @@ a{ color:inherit; text-decoration:none; }
   display:flex;
   align-items:center;
   gap: 12px;
+}
+.brand__logo{
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  object-fit: cover;
+  display:block;
+  box-shadow: 0 14px 40px rgba(0,0,0,.45);
 }
 .brand__mark{
   width: 36px;
@@ -196,7 +210,7 @@ a{ color:inherit; text-decoration:none; }
   background:
     radial-gradient(900px 600px at 20% 15%, rgba(212,175,55,.12), transparent 60%),
     radial-gradient(900px 600px at 80% 30%, rgba(255,30,30,.12), transparent 60%),
-    linear-gradient(to bottom, rgba(5,5,5,.30), rgba(5,5,5,.90));
+    linear-gradient(to bottom, rgba(5,5,5,.30), rgba(0, 0, 0, 0.9));
 }
 .hero__photo{
   position:absolute;
@@ -225,7 +239,7 @@ a{ color:inherit; text-decoration:none; }
   position:absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.05) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(90deg, rgba(245, 0, 188, 0.193), rgba(255,255,255,.05) 1px, transparent 1px, transparent 24px),
     repeating-linear-gradient(0deg, rgba(255,255,255,.04), rgba(255,255,255,.04) 1px, transparent 1px, transparent 22px);
   opacity: .35;
   mix-blend-mode: overlay;
@@ -836,7 +850,7 @@ a{ color:inherit; text-decoration:none; }
 
 @media (max-width: 380px){
   .container{ width: calc(100% - 22px); }
-  .h2{ font-size: 28px; }
+  .h2{ font-size: 26px; }
   .book__title{ font-size: 40px; }
 }
 
@@ -912,7 +926,7 @@ a{ color:inherit; text-decoration:none; }
   }
 
   .h1{
-    font-size: clamp(34px, 9vw, 44px);
+    font-size: clamp(28px, 8.4vw, 38px);
     line-height: 1.02;
   }
 
@@ -2023,29 +2037,30 @@ a{ color:inherit; text-decoration:none; }
    ========================================= */
 @media (max-width: 768px) {
   .hero {
-    /* Empujamos el texto un poco hacia abajo para dejarle espacio al rostro */
-    padding-top: 320px; 
-    padding-bottom: 60px; /* Restauramos el padding normal de abajo */
+    padding-top: 72px;
+    padding-bottom: 48px;
   }
 
   .hero__photo {
-    /* Anclamos la foto arriba y le damos un límite de altura para evitar el zoom */
-    width: 100%;
-    height: 550px; 
-    top: 0;
-    bottom: auto;
+    left: 0;
     right: 0;
-    clip-path: none; /* Quitamos el corte diagonal que solo sirve en PC */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    clip-path: none;
     border: none;
-    
-    /* MAGIA: Hacemos que la foto se difumine hacia abajo para que el texto se lea perfecto */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+    background: transparent;
+    opacity: .26;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .hero__photo:after {
+    display: none;
   }
 
   .hero__photo img {
-    /* Aseguramos que el enfoque esté en su cabeza */
-    object-position: center top; 
+    object-position: center top;
   }
 
   /* Apilamos los recuadros de beneficios en 1 sola columna */
@@ -2062,6 +2077,3 @@ a{ color:inherit; text-decoration:none; }
     width: 100%;
   }
 }
-
-
-
