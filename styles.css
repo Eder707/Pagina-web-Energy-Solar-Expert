@@ -239,9 +239,9 @@ a{ color:inherit; text-decoration:none; }
   position:absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(90deg, rgba(245, 0, 188, 0.193), rgba(255,255,255,.05) 1px, transparent 1px, transparent 24px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.05), rgba(255,255,255,.05) 1px, transparent 1px, transparent 24px),
     repeating-linear-gradient(0deg, rgba(255,255,255,.04), rgba(255,255,255,.04) 1px, transparent 1px, transparent 22px);
-  opacity: .35;
+  opacity: .22;
   mix-blend-mode: overlay;
 }
 .hero__photoLabel{
@@ -1216,8 +1216,22 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: var(--shadow2);
 }
 .comm-card__icon {
-  font-size: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 44px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.04);
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .7px;
   line-height: 1;
+  text-transform: uppercase;
 }
 .comm-card__title {
   font-family: Montserrat, sans-serif;
